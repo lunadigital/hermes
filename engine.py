@@ -14,25 +14,26 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-from bpy import context, data, ops
+import bpy
 
 # Things to add:
 # - Remove all from group
 
 def select_all_by_type(type=None):
-	for obj in data.objects:
-		if obj.type == type:
-			obj.select = True
+    bpy.ops.object.select_all(action='DESELECT')
+    for obj in bpy.data.objects:
+        if obj.type == type:
+            obj.select = True
 
-def remove_all_by_type(type=None):
+def delete_all_by_type(type=None):
 	select_all_by_type(type=type)
-	ops.object.delete(use_global=False)
+	bpy.ops.object.delete(use_global=False)
 		
 def add_all_to_group(group_name, prefix=None):
-    for obj in data.objects:
+    for obj in bpy.data.objects:
         if prefix is None:
-            context.scene.objects.active = obj
-            ops.object.group_link(group=group_name)
+            bpy.context.scene.objects.active = obj
+            bpy.ops.object.group_link(group=group_name)
         elif obj.name[:len(prefix)] == prefix:
-            context.scene.objects.active = obj
-            ops.object.group_link(group=group_name)
+            bpy.context.scene.objects.active = obj
+            bpy.ops.object.group_link(group=group_name)

@@ -1,5 +1,4 @@
-# Hermes
-# Contributor(s): Aaron Powell (aaron@lunadigital.tv)
+# #### BEGIN GPL LICENSE BLOCK ####
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -13,10 +12,13 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+# Contributor(s): Aaron Powell (aaron@lunadigital.tv)
+#
+# #### END GPL LICENSE BLOCK ####
 
 import bpy
 from bpy.types import Panel, Operator
-
 from . import engine
 
 # "Select All By Type" Operators

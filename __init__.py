@@ -1,5 +1,4 @@
-# Hermes
-# Contributor(s): Aaron Powell (aaron@lunadigital.tv)
+# #### BEGIN GPL LICENSE BLOCK ####
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -13,12 +12,16 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+# Contributor(s): Aaron Powell (aaron@lunadigital.tv)
+#
+# #### END GPL LICENSE BLOCK ####
 
 bl_info = {
         "name": "Hermes",
         "description": "A collection of common functions used at Luna Digital.",
         "author": "Aaron Powell",
-        "version": (0, 1),
+        "version": (0, 1, 0),
         "blender": (2, 78, 0),
         "location": "Properties > 3D View > Toolbar",
         "warning": "", # used for warning icon and text in add-ons panel

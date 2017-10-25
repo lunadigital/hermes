@@ -40,3 +40,7 @@ def add_all_to_group(group_name, prefix=None):
         elif obj.name[:len(prefix)] == prefix:
             bpy.context.scene.objects.active = obj
             bpy.ops.object.group_link(group=group_name)
+
+def dissolve_nth_verts():
+    bpy.ops.mesh.select_nth()
+    bpy.ops.mesh.dissolve_verts()

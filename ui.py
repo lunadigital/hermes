@@ -239,6 +239,18 @@ class OBJECT_OT_delete_all_cameras(Operator):
         engine.delete_all_by_type('CAMERA')
         return {'FINISHED'}
 
+class OBJECT_OT_dissolve_nth_verts(Operator):
+    bl_idname = "hermes.dissolve_nth_verts"
+    bl_label = "Dissolve Nth Verts"
+
+    @classmethod
+    def poll(cls, context):
+        return bpy.context.active_object.type=='MESH'
+
+    def execute(self, context):
+        engine.dissolve_nth_verts()
+        return {'FINISHED'}
+
 # Panels
 class OBJECT_PT_select_all_tools(Panel):
     bl_label = 'Select All By Type'
@@ -276,6 +288,16 @@ class OBJECT_PT_delete_all_tools(Panel):
         col.operator('hermes.delete_all_speakers', icon='OUTLINER_OB_SPEAKER')
         col.operator('hermes.delete_all_cameras', icon='OUTLINER_OB_CAMERA')
 
+class OBJECT_PT_misc(Panel):
+    bl_label = 'Misc'
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'TOOLS'
+    bl_category = 'Hermes'
+
+    def draw(self, context):
+        col = self.layout.column(align=True)
+        col.operator('hermes.dissolve_nth_verts', icon='OUTLINER_OB_MESH')
+
 def register():
     # Operators: Select All By Type
     bpy.utils.register_class(OBJECT_OT_select_all_meshes)
@@ -299,9 +321,13 @@ def register():
     bpy.utils.register_class(OBJECT_OT_delete_all_speakers)
     bpy.utils.register_class(OBJECT_OT_delete_all_cameras)
 
+    # Operators: Misc
+    bpy.utils.register_class(OBJECT_OT_dissolve_nth_verts)
+
     # Panels
     bpy.utils.register_class(OBJECT_PT_select_all_tools)
     bpy.utils.register_class(OBJECT_PT_delete_all_tools)
+    bpy.utils.register_class(OBJECT_PT_misc)
 
 def unregister():
     # Operators: Select All By Type
@@ -325,7 +351,11 @@ def unregister():
     bpy.utils.unregister_class(OBJECT_OT_delete_all_empties)
     bpy.utils.unregister_class(OBJECT_OT_delete_all_speakers)
     bpy.utils.unregister_class(OBJECT_OT_delete_all_cameras)
+
+    # Operators: Misc
+    bpy.utils.unregister_class(OBJECT_OT_dissolve_nth_verts)
     
     # Panels
     bpy.utils.unregister_class(OBJECT_PT_select_all_tools)
     bpy.utils.unregister_class(OBJECT_PT_delete_all_tools)
+    bpy.utils.unregister_class(OBJECT_PT_misc)

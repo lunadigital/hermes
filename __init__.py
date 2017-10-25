@@ -21,7 +21,7 @@ bl_info = {
         "name": "Hermes",
         "description": "A collection of common functions used at Luna Digital.",
         "author": "Aaron Powell",
-        "version": (0, 1, 0),
+        "version": (0, 1, 1),
         "blender": (2, 78, 0),
         "location": "Properties > 3D View > Toolbar",
         "warning": "", # used for warning icon and text in add-ons panel

@@ -245,7 +245,7 @@ class OBJECT_OT_dissolve_nth_verts(Operator):
 
     @classmethod
     def poll(cls, context):
-        return bpy.context.active_object.type=='MESH'
+        return any(obj.type=='MESH' for obj in bpy.data.objects) and context.active_object.type=='MESH'
 
     def execute(self, context):
         engine.dissolve_nth_verts()
